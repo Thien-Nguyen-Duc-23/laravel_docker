@@ -1,0 +1,195 @@
+.login {
+    width:400px;
+    margin-left: 130px;
+}
+
+.echartBar {
+    height: 300px;
+}
+
+.echartPie {
+    height: 300px;
+}
+
+.echart1 {
+    height: 260px;
+}
+
+.echart2 {
+    height: 260px;
+}
+
+.echart3 {
+    height: 360px;
+}
+
+.prviewImg {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+}
+
+.prviewImg img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    border-radius: 50%;
+}
+
+.previewSubmit {
+    text-align: center;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
+.style-table {
+    width: 100%;
+}
+
+.style-td {
+    text-align: center;
+}
+
+.table-style {
+    text-align: center;
+}
+
+.config-img {
+    text-align: center;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.set-img {
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.style-img {
+    width: 200px;
+}
+
+.nav a {
+    display: inline-block;
+}
+
+.breadcrumb ul .first-breadcumb:after {
+    content: none;
+}
+
+.set-avatar {
+    margin-right: 15px;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+    font-family: 'FontAwesome';
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pen2 {
+    margin-top: 9px;
+    margin-left: 9px;
+}
+
+.edit-input {
+    border: none;
+    background-color: #fff
+}
+
+.edit-tab {
+    margin-left:200px;
+}
+
+.set-conver-top {
+    margin-left: 0.5rem!important;
+    margin-right: 0.5rem!important;
+}
