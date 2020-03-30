@@ -15,14 +15,14 @@
                                 <div class="entry">
                                     <h2>
                                         @php
-                                            $image = \Storage::disk('public')->exists('/admin/books/'.$getABook[0]->conver) ? \Storage::url('admin/books/'.$getABook[0]->conver) : asset('admin/images/no-image.png');
+                                            $image = \Storage::disk('public')->exists('/admin/books/'.$getABook->conver) ? \Storage::url('admin/books/'.$getABook->conver) : asset('admin/images/no-image.png');
                                         @endphp
                                         <img class="alignleft" src="{{ $image }}" width="170" height="258" />
-                                        <a href="{{ route('book.show', $getABook[0]->slug) }}">{{ $getABook[0]->title }}</a>
+                                        <a href="{{ route('book.show', $getABook->slug) }}">{{ $getABook->title }}</a>
                                     </h2>
-                                    <p>{{ $getABook[0]->short_desc }}</p>
+                                    <p>{{ $getABook->short_desc }}</p>
                                     <p>
-                                        <a class="more-link button" href="{{ route('book.show', $getABook[0]->slug) }}">@lang('home.readMore')</a>
+                                        <a class="more-link button" href="{{ route('book.show', $getABook->slug) }}">@lang('home.readMore')</a>
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
