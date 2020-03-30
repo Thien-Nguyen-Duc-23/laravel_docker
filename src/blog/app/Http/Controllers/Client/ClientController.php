@@ -26,14 +26,14 @@ class ClientController extends Controller
     public function index()
     {
         try {
-            $getABook = $this->book->getRandomBook(1);
+            $getABook = $this->book->getRandomBook(1)->first();
             $getThreeBook = $this->book->getRandomBook(3);
             $latestBook = $this->book->getLatestBook();
             $categories = $this->category->getFourCategories();
         } catch (Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        
+
         return view('client.homepage.index', compact('getABook', 'categories', 'latestBook', 'getThreeBook'));
     }
 }

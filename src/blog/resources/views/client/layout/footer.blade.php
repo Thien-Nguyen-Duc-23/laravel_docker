@@ -30,7 +30,7 @@
                             <ul class="posts-list-items">
                                 @foreach ($items as $item)
                                 <li>
-                                    <a href="{{ route('book.show', $item->id) }}">
+                                    <a href="{{ route('book.show', $item->slug) }}">
                                         <span class="date meta-item">
                                             <span class="fa fa-clock" aria-hidden="true"></span>
                                             <span>{{ $item->diff_now }}</span>
