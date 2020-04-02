@@ -13,6 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::pattern('apiVersion1', 'v[1]');
+Route::prefix('{apiVersion1}')->namespace('Api\V1')->middleware('api')->name('api.')->group(function () {
+    // Auth
+    Route::namespace('Authencation')->group(function () {
+        Route::post('/login', 'AuthencationController@login')->name('login');
+        Route::post('/logout', 'AuthencationController@logout');
+    });
+
+    Route::prefix('book')->namespace('Book')->group(function () {
+        Route::group(['middleware' => 'filter'], function () {
+            Route::get('/index', 'BookController@index');
+            Route::get('/show/{slug}', 'BookController@show');
+        });
+    });
+    Route::get('/', 'Index@index')->name('index');
+});
