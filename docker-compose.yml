@@ -4,7 +4,7 @@ services:
   # The Application
   app:
     build: docker/app
-    container_name: "new-app"
+    container_name: "blogwriter-app"
     volumes:
       - ./src:/var/www:cached
     working_dir: /var/www/blog
@@ -13,7 +13,7 @@ services:
   # The Web Server
   nginx:
     build: docker/nginx
-    container_name: "new-nginx"
+    container_name: "blogwriter-nginx"
     working_dir: /var/www/blog
     ports:
       - 8080:80
@@ -25,7 +25,7 @@ services:
   # The Database
   db:
     image: mysql:5.6
-    container_name: "new-db"
+    container_name: "blogwriter-db"
     volumes:
       - ./docker/mysql/db-data:/var/lib/mysql:cached
       - ./docker/mysql/mysql_confd:/etc/mysql/conf.d:cached
@@ -39,7 +39,7 @@ services:
   #phpmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: "new-phpmyadmin"
+    container_name: "blogwriter-phpmyadmin"
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=db

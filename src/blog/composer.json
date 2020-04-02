@@ -19,7 +19,8 @@
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "pusher/pusher-php-server": "^3.4",
-        "spatie/laravel-analytics": "3.6.*"
+        "spatie/laravel-analytics": "3.6.*",
+        "tymon/jwt-auth": "1.0.0-rc5"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

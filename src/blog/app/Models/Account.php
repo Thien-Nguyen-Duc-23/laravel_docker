@@ -8,7 +8,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth\User as AuthUser;
 
-class Account extends Authenticatable
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class Account extends Authenticatable implements JWTSubject
 {
     // use EntrustUserTrait;
     use Notifiable;
@@ -40,5 +42,39 @@ class Account extends Authenticatable
     public function socialAccount()
     {
         return $this->hasMany(SocialAccount::class, 'user_id', 'id');
+    }
+
+    // JWT の sub に含める値。主キーを使う
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    // JWT のクレームに追加する値。今回は特になし
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    /**
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected static function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public static function me()
+    {
+        return response()->json(auth()->user());
     }
 }
