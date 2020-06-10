@@ -47,7 +47,7 @@ class CategoryResourceCollection extends BaseResourceCollection
     {
         return [
             'data' => [
-                'books' => $this->collection
+                'categories' => $this->collection
             ],
         ];
     }
