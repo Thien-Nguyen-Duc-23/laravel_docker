@@ -29,7 +29,7 @@ class Category extends Model
 
     public function children()
     {
-        return $this->hasMany('App\Models\Category', 'parent_id', 'id');
+        return $this->hasMany('App\Models\Category', 'parent_id', 'id')->with('book');
     }
 
     //  create relationships with table book

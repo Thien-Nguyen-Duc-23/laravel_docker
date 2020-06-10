@@ -9,5 +9,7 @@ interface CategoryRepositoryInterface
 
     public function getFourCategories();
 
+    public function getAllCategories();
+
     // public function getReportHits();
 }

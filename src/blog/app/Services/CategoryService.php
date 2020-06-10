@@ -88,4 +88,9 @@ class CategoryService
     {
         return $this->category->findSlug($slug)->first();
     }
+
+    public function getAllCategories()
+    {
+        return $this->category->getAllCategories();
+    }
 }

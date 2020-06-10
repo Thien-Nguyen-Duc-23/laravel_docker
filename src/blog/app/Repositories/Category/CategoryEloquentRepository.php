@@ -35,4 +35,9 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
                     ->groupBy('idCate')
                     ->get();
     }
+
+    public function getAllCategories()
+    {
+        return $this->model::with(['children', 'book'])->whereNull('parent_id')->get();
+    }
 }
