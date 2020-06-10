@@ -1,0 +1,5 @@
+# User specific & automatically generated files #
+#################################################
+docker/mysql/db-data
+# /data/redis
+# /data/logs
