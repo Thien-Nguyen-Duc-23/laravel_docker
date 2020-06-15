@@ -25,6 +25,7 @@ Route::prefix('{apiVersion1}')->namespace('Api\V1')->middleware('api')->name('ap
         Route::group(['middleware' => 'filter'], function () {
             Route::get('/index', 'BookController@index');
             Route::get('/show/{slug}', 'BookController@show');
+            Route::get('/top', 'BookController@topBook');
         });
     });
 

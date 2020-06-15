@@ -13,13 +13,13 @@ use App\Helpers\AdminHelper;
 class BookService
 {
     protected $book;
-    
+
     // inject BookRepositoryInterface in construct
     public function __construct(BookRepositoryInterface $books)
     {
         $this->book = $books;
     }
-    
+
     // get all category
     public function getCategory()
     {
@@ -65,7 +65,7 @@ class BookService
         } else {
             $fileUpload = $request->file('coverImage');
             $oldFile = $request->oldFile;
-            
+
             $result = $this->book->updateUpload($id, $attributes, $fileUpload, $folder, $colum, $oldFile, null);
         }
 
@@ -77,14 +77,14 @@ class BookService
     {
         return $this->book->getAll();
     }
-    
+
     // function store Book
     public function storeBook(StoreBookRequest $request)
     {
         $fileUpload = $request->file('coverImage');
         $folder = 'public/admin/books/';
         $colum = 'conver';
-        
+
         $attributes = [
             'title' => $request->titleBook,
             'isbn' => $request->isbn,
@@ -107,9 +107,9 @@ class BookService
     {
         $folder = 'public/admin/books/';
         $oldFile = $this->book->find($id)->conver;
-        
+
         AdminHelper::deleteFile($folder, $oldFile);
-        
+
         return $this->book->find($id)->delete();
     }
 
@@ -127,7 +127,7 @@ class BookService
     public function paginate($value)
     {
         \Session::put('valueSearch', $value);
-        
+
         $result = Book::where('title', 'like', '%' . $value . '%')
             ->orWhere('author', 'like', '%' . $value . '%')
             ->orderBy('created_at', 'desc')
@@ -135,7 +135,7 @@ class BookService
 
         return $result;
     }
-    
+
     // function show detail book
     public function show($id)
     {
@@ -177,9 +177,17 @@ class BookService
                 'status' => config('define.active'),
             ];
         }
-        
+
         $result = $this->book->update($id, $attributes);
 
         return $result;
     }
+
+        // funciton get top book
+        public function getLatestBook()
+        {
+            $books = $this->book->getLatestBook();
+
+            return $books;
+        }
 }

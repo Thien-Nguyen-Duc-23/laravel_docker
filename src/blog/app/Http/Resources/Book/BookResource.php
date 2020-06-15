@@ -18,7 +18,7 @@ class BookResource extends BaseJsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'conver' => \Storage::disk('public')->exists('/admin/books/'.$this->conver) ? \Storage::url('admin/books/'.$this->conver) : asset('admin/images/no-image.png'),
+            'conver' => \Storage::disk('public')->exists('/admin/books/'.$this->conver) ? asset('admin/books/'.$this->conver) : asset('admin/images/no-image.png'),
             'isbn' => $this->isbn,
             'author' => $this->author,
             'discription' => $this->discription,
