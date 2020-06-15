@@ -25,7 +25,7 @@ class CategoriesResource extends BaseJsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'cover' => \Storage::disk('public')->exists('/admin/categories/'.$this->cover) ? \Storage::url('admin/categories/'.$this->cover) : asset('admin/images/no-image.png'),
+            'cover' => \Storage::disk('public')->exists('/admin/categories/'.$this->cover) ? asset('admin/categories/'.$this->cover) : asset('admin/images/no-image.png'),
             'parent_id' => $this->parent_id,
             'slug' => $this->slug,
             'books' => $count,

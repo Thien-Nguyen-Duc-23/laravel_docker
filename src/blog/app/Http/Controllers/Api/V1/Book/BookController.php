@@ -64,4 +64,23 @@ class BookController extends Controller
             'comments' => $comments
         ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function topBook(Request $request)
+    {
+        try {
+            $latestBook = $this->book->getLatestBook();
+            if (!$latestBook) {
+                return $this->apiResponse(400000, ['messages' => 'There was an error retrieving the book !!!'], null, 400);
+            }
+        } catch (Exception $exception) {
+            return $this->apiResponse(400000, ['messages' => 'There was an error retrieving the book !!!'], null, 400);
+        }
+
+        return BookResource::collection($latestBook);
+    }
 }
