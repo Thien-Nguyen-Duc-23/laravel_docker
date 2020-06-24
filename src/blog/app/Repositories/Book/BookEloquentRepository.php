@@ -61,4 +61,14 @@ class BookEloquentRepository extends EloquentRepository implements BookRepositor
             ->where('books.status', config('define.active'))
             ->paginate(config('define.paginate'));
     }
+
+    // function get book of category
+    public function getBookFolowCate ($id, $slug)
+    {
+        return $this->model::whereHas('category', function ($query) use ($id, $slug) {
+                $query->where('slug', $slug)
+                    ->orWhere('parent_id', $id);
+            })
+            ->paginate(config('define.paginate'));
+    }
 }

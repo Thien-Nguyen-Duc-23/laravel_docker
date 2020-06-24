@@ -120,4 +120,19 @@ class Book extends Model
     {
         return $this->hasMany(Comment::class, 'book_id', 'id');
     }
+
+
+    // // get book of category follow slug
+    // public function getBookOfCategory($slug)
+    // {
+    //     return $this->belongsTo(Category::class, 'category_id', 'id')
+    //         ->with('book')
+    //         ->where('slug', $slug)
+    //         ->orWhere('id', function($query) use ($slug) {
+    //             $query->select('*')
+    //             ->from('categories')
+    //             ->join('categories as chilren', 'categories.id', '=', 'chilren.parent_id')
+    //             ->where()
+    //         });
+    // }
 }
