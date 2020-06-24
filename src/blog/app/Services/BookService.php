@@ -183,11 +183,17 @@ class BookService
         return $result;
     }
 
-        // funciton get top book
-        public function getLatestBook()
-        {
-            $books = $this->book->getLatestBook();
+    // funciton get top book
+    public function getLatestBook()
+    {
+        $books = $this->book->getLatestBook();
 
-            return $books;
-        }
+        return $books;
+    }
+
+    // funciton get book follow category
+    public function getBookFolowCate($id, $slug)
+    {
+        return $this->book->getBookFolowCate($id, $slug);
+    }
 }

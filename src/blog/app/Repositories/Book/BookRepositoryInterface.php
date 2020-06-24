@@ -16,4 +16,6 @@ interface BookRepositoryInterface
     public function getSortByComment();
 
     public function getSortByRate();
+
+    public function getBookFolowCate($id, $slug);
 }

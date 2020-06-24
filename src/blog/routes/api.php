@@ -32,6 +32,7 @@ Route::prefix('{apiVersion1}')->namespace('Api\V1')->middleware('api')->name('ap
     Route::prefix('category')->namespace('Category')->group(function () {
         Route::group(['middleware' => 'filter'], function () {
             Route::get('/list', 'CategoryList@index');
+            Route::get('/book-of-category/{slug}', 'CategoryList@bookOfCategory')->name('book_of_category');
             // Route::get('/show/{slug}', 'BookController@show');
         });
     });
