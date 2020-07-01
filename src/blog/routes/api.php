@@ -36,6 +36,10 @@ Route::prefix('{apiVersion1}')->namespace('Api\V1')->middleware('api')->name('ap
             // Route::get('/show/{slug}', 'BookController@show');
         });
     });
+    
+    Route::namespace('Contact')->group(function () {
+        Route::post('store-contact', 'ContactController@createContact');
+    });
 
     Route::get('/', 'Index@index')->name('index');
 });
