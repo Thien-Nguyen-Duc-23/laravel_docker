@@ -16,7 +16,7 @@ services:
     container_name: "blogwriter-nginx"
     working_dir: /var/www/blog
     ports:
-      - 8080:80
+      - "80"
     volumes:
       - ./src:/var/www:cached
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:cached
