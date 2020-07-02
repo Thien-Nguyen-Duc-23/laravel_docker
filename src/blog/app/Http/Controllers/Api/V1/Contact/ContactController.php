@@ -35,7 +35,7 @@ class ContactController extends Controller
         ]);
     
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 404);
+            return $this->apiResponse(401000, ['errors' => $validator->errors()], null, 401);
         }
         
         $attributesContact = [
