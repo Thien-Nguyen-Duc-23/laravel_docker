@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Models\Account;
 use App\Http\Resources\User\UserResource;
+use Validator;
 
 class AuthencationController extends Controller
 {
@@ -21,13 +22,22 @@ class AuthencationController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+            ]);
+
+            if ($validator->fails()) {
+                return $this->apiResponse(401000, ['errors' => $validator->errors()], null, 401);
+            }
+
             $credentials = request(['email', 'password']);
 
             if (! $token = auth()->attempt($credentials)) {
-                return response()->json(['error' => 'Email or password is invalid!!!'], 401);
+                return $this->apiResponse(401000, ['messages' => 'Email or password is invalid!!!'], null, 401);
             }
 
             if (auth()->user()->role_id == config('define.user') &&
